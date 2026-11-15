@@ -1,0 +1,42 @@
+{
+  "base-TEST-v7": {
+    "watertight": true,
+    "connected_solids": 1,
+    "bounds_mm": [
+      107.6,
+      92.27,
+      32.4
+    ],
+    "volume_mm3": 41892.62
+  },
+  "lid-TEST-v7": {
+    "watertight": true,
+    "connected_solids": 1,
+    "bounds_mm": [
+      107.6,
+      92.27,
+      4.9
+    ],
+    "volume_mm3": 17241.14
+  },
+  "plug-keeper-upper-v7": {
+    "watertight": true,
+    "connected_solids": 1,
+    "bounds_mm": [
+      34.993,
+      17.35,
+      2.4
+    ],
+    "volume_mm3": 580.87
+  },
+  "plug-keeper-lower-v7": {
+    "watertight": true,
+    "connected_solids": 1,
+    "bounds_mm": [
+      34.993,
+      17.35,
+      2.4
+    ],
+    "volume_mm3": 580.87
+  }
+}

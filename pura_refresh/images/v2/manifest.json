@@ -1,0 +1,13 @@
+{
+  "bytes": 768240,
+  "sha256": "730e6c1412950b5e037590415d0052099281e47859e759e8f284247cfc957eca",
+  "version": "pura-setup-3",
+  "project": "pura_setup",
+  "legacy_flash_cap_bytes": 4194304,
+  "startup_hook_order_checked": true,
+  "board": "pura-v2",
+  "partition_table_offset": 65536,
+  "slot_bytes": 1228800,
+  "contains_personal_credentials": false,
+  "release_status": "limited hardware pilot; see docs/validation.md"
+}

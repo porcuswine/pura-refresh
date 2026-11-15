@@ -1,0 +1,74 @@
+{
+  "units": "mm",
+  "measured": {
+    "board_diameter": 84.67,
+    "board_thickness": 1.7,
+    "transformer_height_from_board_bottom_approx": 13.0,
+    "board_top_to_esp32_bottom": 2.25,
+    "mount_hole_spacing": 42.8,
+    "mount_hole_diameter": 5.8,
+    "led_edge_to_mount_hole_line_approx": 29.5,
+    "plug_area_width": 28.0,
+    "plug_flange_diameter": 29.84,
+    "plug_neck_diameter": 25.7,
+    "plug_flange_thickness": 5.0,
+    "plug_total_thickness": 11.8
+  },
+  "assumed": {
+    "mount_holes_symmetric_about_board_center": true,
+    "led_edge_reference_is_full_circle_top": true,
+    "plug_center_x": 0.0,
+    "plug_center_y": -26.0,
+    "plug_flange_faces_case_interior": true,
+    "radial_board_clearance": 1.4,
+    "wall": 2.4,
+    "board_bottom_z": 14.4,
+    "case_seam_z": 32.4,
+    "lid_thickness": 2.4,
+    "plug_neck_opening_diameter": 25.9,
+    "plug_flange_recess_diameter": 30.04,
+    "sensor_clock_position": 7.62095783584136,
+    "sensor_bore_diameter": 8.0,
+    "sensor_center_z": 15.25,
+    "keeper_split_gap": 0.3,
+    "led_hole_diameter": 6.0,
+    "led_center_z": 15.25,
+    "led_arc_angles_degrees": [
+      141.2095783584136,
+      120.72574701504816,
+      99,
+      81,
+      59.274252984951836,
+      38.7904216415864
+    ]
+  },
+  "revision_notes": [
+    "Plug diameters corrected by user after first gauge test.",
+    "Board gauge crossbar interfered with ESP32; v2 adds 12 mm standoffs below the locating pegs.",
+    "Flange fits smallest flange-gauge-v2 hole; use 30.04 mm recess.",
+    "Board-hole-gauge-v2 fit confirmed; case uses its 8 mm support diameter, 12 mm support height and 1.7 mm peg height.",
+    "Neck opening estimated as reported 25.70 mm diameter + 0.20 mm clearance, authorized for test print; not independently fit-confirmed.",
+    "Plug position, board hole-row offset, component envelope, button and LED access remain provisional.",
+    "User identified ambient sensor at 7 oclock, clear protruding component beside D20 in board photo. Added radial 8 mm wall opening, size and height provisional.",
+    "Closed keeper cannot pass over plug. Replaced with two halves and four screw positions, two per half. New base required; v3 lid reusable.",
+    "v6 moves all six LED openings to radial bores through the curved base wall at PCB mid-height (z=15.25 mm), at photo-estimated angles 135,117,99,81,63,45 degrees. Bore diameter 6 mm; alignment still provisional.",
+    "Solid lid restored, identical to v4. Split plug keepers and other base features retained.",
+    "v7 applies user fit feedback: D1/D6 move 5 mm toward sides, D2/D5 move 3 mm toward sides, D3/D4 unchanged; distances interpreted along outer case arc.",
+    "Sensor moves 15 mm away from 6 toward 8 oclock along outer case arc. Only base geometry changes."
+  ],
+  "fit_confirmed": {
+    "board_gauge_v2_spacing": 42.8,
+    "board_gauge_v2_peg_diameter": 5.3,
+    "board_gauge_v2_peg_height": 1.7,
+    "board_gauge_v2_support_height": 12.0,
+    "flange_gauge_v2_opening_diameter": 30.04
+  },
+  "fit_corrections_v7": {
+    "distance_reference": "arc length on outer case surface, radius 46.135 mm",
+    "D1_D6_outward_arc_shift_mm": 5,
+    "D2_D5_outward_arc_shift_mm": 3,
+    "D3_D4": "kept in confirmed aligned locations",
+    "sensor_shift_toward_8_oclock_arc_mm": 15,
+    "sensor_angle_from_positive_x_degrees": -138.6287350752408
+  }
+}

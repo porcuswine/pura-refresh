@@ -1,0 +1,19 @@
+{
+  "bytes": 768896,
+  "sha256": "d76610faa0066f503a6a7e85198c89ffb5bf011ffb0fa1b7c33959253d3816e3",
+  "version": "pura-v3-setup-3",
+  "project": "pura_v3_setup",
+  "board": "pura-v3",
+  "partition_table_offset": 65536,
+  "startup_hook_order_checked": true,
+  "legacy_flash_size_handling": "cap inherited descriptor to valid JEDEC density, retaining up to 16MB",
+  "max_image_bytes": 786432,
+  "partition_table_md5_required": false,
+  "heater_off_gpio_level": 0,
+  "psram_gpio_untouched": [
+    16,
+    17
+  ],
+  "contains_personal_credentials": false,
+  "release_status": "limited hardware pilot; see docs/validation.md"
+}

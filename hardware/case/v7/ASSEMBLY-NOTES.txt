@@ -1,0 +1,49 @@
+PURA ELECTRONICS CASE v4 — SENSOR OPENING AND SPLIT PLUG KEEPER
+
+Changes
+1. Radial 8 mm opening at 7 oclock in the base wall. Orientation matches the
+   board photo: look into the open case with the LED arc at 12 oclock. This is
+   for the clear protruding component beside D20 and left of the pushbutton.
+   Opening center is 15.25 mm above the rear exterior, at PCB mid-thickness.
+   Bore diameter/height are estimates; check that the sensor clears and sees
+   outside through the hole without loading its leads.
+2. The closed plug keeper is replaced by two halves that approach from opposite
+   sides around the narrow plug section. Nothing needs to pass over the larger
+   flange. Two screws retain each half (four M2 x 6 mm screws in total).
+3. Base has four keeper screw bosses instead of three. Print the new base with
+   the new halves; the halves do not match the v3 base screw layout.
+
+Print
+base-TEST-v4.stl: flat back on plate, open tray upward.
+plug-keeper-upper-v4.stl and plug-keeper-lower-v4.stl: both flat, as supplied.
+The v3 lid is reusable. lid-TEST-v4.stl is included and has identical geometry.
+Use the same dimensional settings as successful gauges. 0.20 mm layers,
+3+ walls, 4+ top/bottom layers are reasonable fit-test starting settings.
+Check slicer layer preview at the sensor bore; no supports are intended.
+
+Assembly, unplugged
+Fit original plug into base recess (confirmed 30.04 mm flange recess; estimated
+25.90 mm neck opening). Slide keeper halves around neck from opposite sides,
+seat on bosses, and fasten gently. A 0.30 mm seam separates the halves.
+Case screws: two M3 x 10 mm into 2.5 mm printed pilots.
+PCB screws: proposed M2.5 x 6 mm with insulating washers into 2 mm pilots;
+check washer clearance and screw engagement before installing.
+Board mounts retain confirmed gauge dimensions: 42.80 mm spacing, 5.30 mm
+locating pegs, 1.70 mm peg height, 8 mm shoulders and 12 mm floor clearance.
+Seat board, verify sensor passes freely through the 7 oclock wall opening,
+and confirm lid closes without squeezing components or wires.
+
+Remaining assumptions
+Plug center remains 26 mm below PCB center. Sensor exact height/diameter,
+board hole-row offset and complete component envelopes are not measured.
+The pushbutton and front LED access are still not modeled. The original plug
+rotation mechanism and retention strength are not validated by this test.
+Body 92.27 mm diameter, 107.6 mm across screw tabs, assembled depth 34.8 mm.
+All four STLs pass watertight single-solid checks.
+
+Unpowered mechanical test only. Do not connect this prototype to mains.
+Electrical insulation, enclosure openings/access, material, temperature and
+plug retention require assessment before powered use.
+
+Sources: measurements.json, generate_case.py, pura-electronics-case.scad.
+Generator needs numpy, trimesh, manifold3d, matplotlib.

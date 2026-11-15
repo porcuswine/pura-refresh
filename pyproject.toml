@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pura-refresh"
+version = "0.1.0"
+description = "Standalone Raspberry Pi first-flash installer for tested Pura V2 and V3 devices"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "porcuswine"}]
+dependencies = ["bleak==2.1.1"]
+
+[project.urls]
+Homepage = "https://github.com/porcuswine/pura-refresh"
+Repository = "https://github.com/porcuswine/pura-refresh"
+Issues = "https://github.com/porcuswine/pura-refresh/issues"
+
+[project.scripts]
+pura-refresh = "pura_refresh.cli:main"
+
+[tool.setuptools]
+license-files = ["LICENSE", "NOTICE.md", "third_party_licenses/**/*"]
+
+[tool.setuptools.packages.find]
+include = ["pura_refresh*"]
+
+[tool.setuptools.package-data]
+pura_refresh = ["images/*/*.bin", "images/*/*.json"]

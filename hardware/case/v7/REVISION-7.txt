@@ -1,0 +1,31 @@
+PURA CASE v7 — FIT CORRECTIONS TO LED AND LIGHT SENSOR OPENINGS
+
+Only reprint base-TEST-v7.stl. Reuse the solid lid and split plug keepers.
+The complete package also includes identical copies of the solid lid/keepers.
+
+With the open case viewed from inside and the LED arc at the top:
+D1/D6 moved 5 mm toward the sides (away from 12 oclock).
+D2/D5 moved 3 mm toward the sides (away from 12 oclock).
+D3/D4 kept in their confirmed aligned positions.
+Sensor opening moved 15 mm away from 6 oclock, toward 8 oclock.
+All shift distances are interpreted as arc lengths along the outer wall,
+radius 46.135 mm. Sensor is now approximately at 7:37 on a clock face.
+Hole diameters and height are retained: six 6 mm LED openings and one 8 mm
+sensor opening, all at center height 15.25 mm above the rear exterior.
+
+Base dimensions, PCB supports, plug recess, four keeper bosses and case
+fasteners are unchanged. Overall body diameter 92.27 mm; width including
+tabs 107.6 mm; assembled depth with solid lid 34.8 mm.
+
+Print the base flat back down, open tray upward, in the supplied orientation.
+Use the settings that worked for your previous print. Review horizontal bores
+in the slicer layer view; no supports are designed to be required.
+Check board and sensor/LED alignment with the unit unplugged and do not bend
+leads to force a fit. This is still an unpowered mechanical prototype.
+Electrical/thermal safety, enclosure access and plug retention strength have
+not been established for mains use.
+
+All four STLs pass watertight single-solid checks. ASSEMBLY-NOTES.txt retains
+hardware details from the split keeper revision; this document supersedes
+its original sensor location. Editable sources are measurements.json,
+generate_case.py and pura-electronics-case.scad.

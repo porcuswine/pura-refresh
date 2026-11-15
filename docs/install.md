@@ -4,7 +4,7 @@
 
 Use Raspberry Pi OS Bookworm, Python 3.10 or later, NetworkManager, an AP-capable Wi-Fi adapter and working BlueZ Bluetooth. Development was tested on a Debian Bookworm aarch64 Raspberry Pi. Connect Ethernet before using SSH. Give the Pi reliable power and keep the diffuser close enough for Wi-Fi and Bluetooth.
 
-Download a private release with authenticated GitHub CLI (`gh release download v0.1.0 --repo porcuswine/pura-refresh`) or clone this private repository. Extract the source archive before running `./install-pi.sh` as your normal user. It installs missing packages from a fixed list, then creates `.venv`. It does not replace NetworkManager or overwrite the global dnsmasq configuration. Internet is needed to install dependencies.
+Download the full source ZIP from [Releases](https://github.com/porcuswine/pura-refresh/releases), or run `git clone https://github.com/porcuswine/pura-refresh.git`. No GitHub account is required to read or clone the public repository. Extract the source archive before running `./install-pi.sh` as your normal user. It installs missing packages from a fixed list, then creates `.venv`. It does not replace NetworkManager or overwrite the global dnsmasq configuration. Internet is needed to install dependencies.
 
 Read the compatibility table in the README. Power only the target stock unit, in its original housing. Close the Pura app, disconnect nRF Connect or similar clients, and temporarily turn phone Bluetooth off. Enter breathing-blue setup mode with the accessible button. This may reset the device's stock Wi-Fi settings.
 

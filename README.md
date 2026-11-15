@@ -2,7 +2,7 @@
 
 A standalone Raspberry Pi installer that replaces the stock application on tested Pura V2 and V3 diffusers with local setup and Wi-Fi firmware updates. No router changes, cloud account or UART wiring are required for a successful installation.
 
-**Private repository.** Source, instructions and release downloads are available only to repository collaborators. GitHub Pages is not enabled.
+Source, instructions and release downloads are available in this public repository. GitHub Pages is not enabled.
 
 This is a limited hardware pilot. An unsuccessful install can require opening the device and recovering it over UART. Keep the diffuser assembled during wireless installation. The included application holds both heaters off; it is a starting point for repurposing, not a complete diffuser or Bluetooth gateway application.
 
@@ -19,17 +19,17 @@ V2 2.10.1 has been analyzed but is not separately validated end to end. Stock Bl
 
 Use Raspberry Pi OS Bookworm with NetworkManager, working Wi-Fi and Bluetooth, and **Ethernet for SSH**. The installer temporarily takes exclusive control of the selected Wi-Fi adapter. Do not run it through an SSH connection carried by that adapter.
 
-With GitHub access configured on the Pi:
+On the Pi:
 
 ```sh
-gh repo clone porcuswine/pura-refresh
+git clone https://github.com/porcuswine/pura-refresh.git
 cd pura-refresh
 ./install-pi.sh
 sudo "$PWD/.venv/bin/pura-refresh" images
 sudo "$PWD/.venv/bin/pura-refresh" wizard
 ```
 
-Alternatively clone the private repository using your existing authenticated Git setup. Installation downloads system/Python dependencies; device flashing itself uses a local isolated network without Internet forwarding.
+You can also download the source ZIP from [Releases](https://github.com/porcuswine/pura-refresh/releases). Installation downloads system/Python dependencies; device flashing itself uses a local isolated network without Internet forwarding.
 
 Power only the selected stock diffuser near the Pi. Close the Pura app and disconnect other Bluetooth clients. Hold the diffuser's accessible setup button until the nightlight breathes blue, then release it. In the wizard, choose the physical V2/V3 board and the advertised device. The installer queries its Wi-Fi MAC, hardware and software family, then checks its updater model before serving the matching image.
 

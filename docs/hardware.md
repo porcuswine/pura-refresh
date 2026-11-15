@@ -16,7 +16,20 @@ These are board observations and stock-firmware analysis for tested hardware, no
 | Ambient sensor | GPIO35; higher raw readings when covered | not identified |
 | Thermistors | not mapped here | GPIO36 and GPIO39 |
 
-V2 P6 was traced as pins 1=GPIO33, 2=GPIO32, 3=3.3 V, 4=GND, using the observed connector orientation. Verify orientation and continuity on your own board before connecting anything. The connector family investigated was Molex 78171/78172, four positions. No spare-current rating has been established for its 3.3 V rail. V3 TP1 is not mapped; do not assume it matches V2.
+V2 P6 was traced as pins 1=GPIO33, 2=GPIO32, 3=nominal 3.3 V, 4=GND, using the working bench numbering. This numbering has not yet been reconciled with the manufacturer's cavity numbers. Verify orientation and continuity on your own board before connecting anything. No spare-current rating has been established for its 3.3 V rail. V3 TP1 is not mapped; do not assume it matches V2.
+
+## V2 P6 connector
+
+The candidate identification is **Molex Pico-EZmate, 1.20 mm pitch, four circuits**, rather than 1.25 mm PicoBlade. Physical mating verification remains open.
+
+| Part | Manufacturer description | Role |
+| --- | --- | --- |
+| [78171-0004 / 0781710004](https://www.molex.com/en-us/products/part-detail/781710004) | Four-circuit PCB header, male, surface mount | Candidate board-side P6 header |
+| [78172-0004](https://www.molex.com/en-us/products/part-detail/781720004) | Four-circuit receptacle crimp housing | Candidate mating cable housing; contacts/wires are separate |
+
+Molex specifies vertical mating for this low-profile family. Its open appearance differs from a conventional enclosed side-entry connector. See the [P6 close-up](photos/v2-p6-connector.jpg). Connector specifications do not establish the Pura's available accessory current. A tested cable assembly and manufacturer-numbered pinout are still needed; see the [TODO list](../TODO.md).
+
+## Programming and power limits
 
 P1 on both photographed revisions is GND, PROG (GPIO0 boot strap), TX (GPIO1), RX (GPIO3). Module pad numbers differ from GPIO numbers and P1 terminal positions. P1 supplies no dedicated power pin. GPIO16/17 on WROVER are reserved for internal PSRAM and must not be reused as V2 LED outputs.
 

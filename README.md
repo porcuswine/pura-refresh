@@ -50,6 +50,7 @@ A successful run must print **BOOT VERIFIED**. Firmware download alone is not pr
 - [Hardware pin maps and limitations](docs/hardware.md)
 - [Sanitized hardware and enclosure photos](docs/photos/README.md)
 - [Validation and known limits](docs/validation.md)
+- [TODO and outstanding electrical tests](TODO.md)
 - [Building firmware](docs/build.md)
 - [Privacy and security](SECURITY.md)
 - [Licenses and attribution](NOTICE.md)

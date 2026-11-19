@@ -31,7 +31,7 @@ Molex specifies vertical mating for this low-profile family. Its open appearance
 
 ## V2 P6 additional-load observation — 2026-11-19
 
-One V2 board was tested through P6 working pins 3 (nominal 3.3 V) and 4 (GND), using a mating plug. The exact PCB revision, firmware/radio workload, ambient temperature and power-source setup were not captured in the measurement log. Results must not be generalized to other revisions or V3, or treated as a verified original-supply rating without confirming that the original onboard supply powered the test.
+One V2 board was tested through P6 working pins 3 (nominal 3.3 V) and 4 (GND), using a mating plug. The board was powered through its original AC plug using the onboard power supply, with no bench supply connected. The exact PCB revision, firmware/radio workload and ambient temperature were not captured in the measurement log. Results must not be generalized to other revisions or V3, or treated as an original-supply current rating.
 
 | Added resistive load | Reported rail voltage | Calculated additional current |
 | --- | --- | --- |
@@ -47,7 +47,7 @@ Resistors were specified as 0.5 W, 1% metal film. At the final reported voltage,
 
 Before publishing a usable accessory-power budget:
 
-- Confirm the actual supply source and trace the P6 rail's regulator, return and mains-isolation boundary. Identify relevant component ratings; a transformer or an open-circuit continuity test alone does not establish protective isolation.
+- Trace the P6 rail's regulator, return and mains-isolation boundary. Identify relevant component ratings; a transformer or an open-circuit continuity test alone does not establish protective isolation.
 - Have a qualified person assess insulation, clearances/creepage and accessible conductive parts. Any required dielectric-withstand and leakage/touch-current tests need appropriate equipment and procedures; they are not improvised multimeter tests. See [MEAN WELL's insulation-test explanation](https://www.meanwell.com/qa.aspx).
 - Measure regulator, transformer, rectifier, capacitor and enclosure temperatures under sustained representative load, in the intended enclosure and ambient conditions, until temperatures stabilize. Compare with actual component ratings and retain margin. The load resistors' temperature is not the supply temperature.
 - Check startup, radio peaks and load changes using appropriately rated isolated or differential measurement equipment. A handheld meter's MIN/MAX display can miss brief dips and switching ripple. Never defeat an oscilloscope's protective earth; see [Tektronix's floating-measurement guidance](https://www.tek.com/en/documents/application-note/three-facets-floating-measurement-solutions).

@@ -15,6 +15,8 @@ V2 stock 2.10.1 was analyzed separately. It is not a separate end-to-end hardwar
 
 The combined `pura-refresh` wrapper passed installation, unit tests and isolated-network checks on the Pi. The V2/V3 transfer and bootstrap implementations were exercised in the hardware tests above; the final combined wizard has not yet been exercised on another untouched unit.
 
+Reported V2 circuit tracing and identification of the ELD207 dual-channel optocoupler provide strong evidence for galvanic isolation of the ESP32/P6 domain. This topology inference is separate from protective-insulation qualification; see [evidence and remaining checks](hardware.md#v2-p6-isolation-evidence--2026-11-19). It does not extend to V3 without separate assessment.
+
 ## Automated checks
 
 The test suite validates board-specific images, cross-board rejection, corrupt images, legacy memory bounds and required startup proof; protocol framing/provisioning order; device metadata parsing and identity mismatches; isolated DHCP/DNS configuration; HTTPS source/model restrictions; rehearsal withholding; one completed delivery; boot identity checks; and owner-only report permissions. Local TLS tests require loopback socket access and OpenSSL.

@@ -5,7 +5,8 @@ Unchecked items are unfinished work, not supported capabilities or established e
 ## Low-voltage DC power — priority
 
 - [ ] Confirm accessible DC rails and attachment points on each board revision. V2 P6 has an observed nominal 3.3 V connection; V3 TP1 remains unmapped. Record voltage with the original supply, polarity, reference ground and board revision.
-- [ ] Establish isolation from mains before treating any rail as suitable for an externally accessible accessory. The presence of a transformer or a low voltage reading alone is not proof of safe isolation.
+- [x] Identify the V2 ELD207 dual-channel optocoupler and record reported transformer/heater-control tracing as strong evidence that the ESP32/P6 domain is galvanically isolated; see [isolation evidence](docs/hardware.md#v2-p6-isolation-evidence--2026-11-19).
+- [ ] Complete an annotated V2 isolation-boundary trace, check all crossing components/paths and assess protective insulation before treating P6 as suitable for externally accessible accessories. Assess V3 separately; component identification is not complete-board safety qualification.
 - [ ] Identify the regulator and supply topology feeding each candidate rail, and obtain its component ratings. Separate connector/contact ratings from the power supply's available output.
 - [ ] Measure baseline rail voltage and current with heaters disabled, including startup and Wi-Fi activity. Record wall input power separately; it does not establish spare output capacity.
 - [x] Record an initial V2 P6 resistive-load observation: approximately 142 mA added load at reported 3.327–3.328 V for about 20 minutes; see [test conditions and limits](docs/hardware.md#v2-p6-additional-load-observation--2026-11-19). This is not a current rating.

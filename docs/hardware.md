@@ -29,6 +29,22 @@ The candidate identification is **Molex Pico-EZmate, 1.20 mm pitch, four circuit
 
 Molex specifies vertical mating for this low-profile family. Its open appearance differs from a conventional enclosed side-entry connector. See the [P6 close-up](photos/v2-p6-connector.jpg). Connector specifications do not establish the Pura's available accessory current. Physical fit and use as a load-test connection have been observed; a reproducible cable/contact parts list and manufacturer-numbered pinout are still needed. See the [TODO list](../TODO.md).
 
+## V2 P6 isolation evidence — 2026-11-19
+
+**The observed topology strongly supports galvanic isolation of the ESP32/P6 low-voltage domain from mains.** This is a conclusion from reported circuit tracing and component identification, not a dielectric-withstand or leakage-test result. It applies to the examined V2 board; V3 and other PCB revisions have not been assessed here.
+
+The central eight-pin component was read as **ELD207** (additional marking reported as `148`). Everlight identifies ELD207 as a dual-channel phototransistor optocoupler: its input LEDs transfer signals optically to electrically separate output transistors. The manufacturer lists a component isolation voltage of 3750 Vrms; that is not an operating-voltage or insulation rating for the complete PCB. See [Everlight's catalogue, ELD207 entry](https://en.everlight.com/wp-content/uploads/2026/01/2026-2027_Catalogue_IR.pdf).
+
+The reported trace observations fit this arrangement:
+
+- The mains/rectified supply feeds the transformer primary and a separate heater-power path.
+- The transformer secondary supplies the low-voltage circuitry; P6 shares the ESP32 supply and ground.
+- One side of the ELD207 connects toward the ESP32 and the other toward the heater circuitry, consistent with two isolated heater-control channels.
+
+The optocoupler identification resolves the previously unidentified component in the heater-control path and provides additional evidence beyond the transformer alone. Reference photos show the [component side](photos/v2-component-side.jpg) and [module side](photos/v2-module-side.jpg). The marking and connectivity were reported from hands-on inspection; the existing photographs alone do not independently establish every connection.
+
+The working conclusion is **apparently galvanically isolated, with strong topology evidence**, conditional on there being no other conductive path between the domains. Remaining work is to record an annotated isolation-boundary/net trace, identify any other components crossing it, and assess transformer insulation, PCB clearances/creepage and the completed assembly. Protective-insulation suitability for accessible accessories has not been qualified. This observation neither establishes a continuous accessory-current rating nor qualifies a modified enclosure.
+
 ## V2 P6 additional-load observation — 2026-11-19
 
 One V2 board was tested through P6 working pins 3 (nominal 3.3 V) and 4 (GND), using a mating plug. The board was powered through its original AC plug using the onboard power supply, with no bench supply connected. The exact PCB revision, firmware/radio workload and ambient temperature were not captured in the measurement log. Results must not be generalized to other revisions or V3, or treated as an original-supply current rating.
@@ -47,13 +63,13 @@ Resistors were specified as 0.5 W, 1% metal film. At the final reported voltage,
 
 Before publishing a usable accessory-power budget:
 
-- Trace the P6 rail's regulator, return and mains-isolation boundary. Identify relevant component ratings; a transformer or an open-circuit continuity test alone does not establish protective isolation.
+- Complete and annotate the P6 regulator/return and isolation-boundary trace, building on the transformer and ELD207 evidence above. Check for any additional paths crossing the boundary and identify component ratings; topology evidence or an open-circuit continuity test alone does not qualify protective insulation.
 - Have a qualified person assess insulation, clearances/creepage and accessible conductive parts. Any required dielectric-withstand and leakage/touch-current tests need appropriate equipment and procedures; they are not improvised multimeter tests. See [MEAN WELL's insulation-test explanation](https://www.meanwell.com/qa.aspx).
 - Measure regulator, transformer, rectifier, capacitor and enclosure temperatures under sustained representative load, in the intended enclosure and ambient conditions, until temperatures stabilize. Compare with actual component ratings and retain margin. The load resistors' temperature is not the supply temperature.
 - Check startup, radio peaks and load changes using appropriately rated isolated or differential measurement equipment. A handheld meter's MIN/MAX display can miss brief dips and switching ripple. Never defeat an oscilloscope's protective earth; see [Tektronix's floating-measurement guidance](https://www.tek.com/en/documents/application-note/three-facets-floating-measurement-solutions).
 - Assess wiring insulation, strain relief, connector/contact suitability and accessory fault protection. Verify the completed assembly, including any modified enclosure; the original product's safety evaluation does not qualify the modification.
 
-Keep externally accessible accessories and grounded USB/bench instruments disconnected until isolation has been established. Further mains-powered characterization should use a protected test fixture and qualified assistance. A longer unchanged-voltage test alone cannot answer these safety questions.
+Keep externally accessible accessories and grounded USB/bench instruments disconnected until the isolation boundary and suitability for the intended connections have been verified. Further mains-powered characterization should use a protected test fixture and qualified assistance. A longer unchanged-voltage test alone cannot answer these safety questions.
 
 ## Programming and power limits
 

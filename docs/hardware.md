@@ -20,14 +20,40 @@ V2 P6 was traced as pins 1=GPIO33, 2=GPIO32, 3=nominal 3.3 V, 4=GND, using the w
 
 ## V2 P6 connector
 
-The candidate identification is **Molex Pico-EZmate, 1.20 mm pitch, four circuits**, rather than 1.25 mm PicoBlade. Physical mating verification remains open.
+The candidate identification is **Molex Pico-EZmate, 1.20 mm pitch, four circuits**, rather than 1.25 mm PicoBlade. The purchased mating plugs were reported to fit P6 successfully during bench testing on 2026-11-19. Manufacturer cavity numbering and the exact purchased cable/contact part numbers remain to be documented.
 
 | Part | Manufacturer description | Role |
 | --- | --- | --- |
 | [78171-0004 / 0781710004](https://www.molex.com/en-us/products/part-detail/781710004) | Four-circuit PCB header, male, surface mount | Candidate board-side P6 header |
 | [78172-0004](https://www.molex.com/en-us/products/part-detail/781720004) | Four-circuit receptacle crimp housing | Candidate mating cable housing; contacts/wires are separate |
 
-Molex specifies vertical mating for this low-profile family. Its open appearance differs from a conventional enclosed side-entry connector. See the [P6 close-up](photos/v2-p6-connector.jpg). Connector specifications do not establish the Pura's available accessory current. A tested cable assembly and manufacturer-numbered pinout are still needed; see the [TODO list](../TODO.md).
+Molex specifies vertical mating for this low-profile family. Its open appearance differs from a conventional enclosed side-entry connector. See the [P6 close-up](photos/v2-p6-connector.jpg). Connector specifications do not establish the Pura's available accessory current. Physical fit and use as a load-test connection have been observed; a reproducible cable/contact parts list and manufacturer-numbered pinout are still needed. See the [TODO list](../TODO.md).
+
+## V2 P6 additional-load observation — 2026-11-19
+
+One V2 board was tested through P6 working pins 3 (nominal 3.3 V) and 4 (GND), using a mating plug. The exact PCB revision, firmware/radio workload, ambient temperature and power-source setup were not captured in the measurement log. Results must not be generalized to other revisions or V3, or treated as a verified original-supply rating without confirming that the original onboard supply powered the test.
+
+| Added resistive load | Reported rail voltage | Calculated additional current |
+| --- | --- | --- |
+| 330 ohm | approximately 3.3 V | 10 mA |
+| 150 ohm | approximately 3.3 V | 22 mA |
+| 100 ohm | approximately 3.3 V | 33 mA |
+| 47 ohm | approximately 3.3 V | 70 mA |
+| Two 47 ohm resistors in parallel (23.5 ohm nominal) | reported approximately 3.327–3.328 V after about 20 minutes using MIN/MAX mode | approximately 142 mA |
+
+Resistors were specified as 0.5 W, 1% metal film. At the final reported voltage, total added load power was approximately 0.47 W, or 0.236 W per resistor. Current is calculated from nominal resistance, not measured directly; it excludes the board's own consumption. The instrument was a KAIWEETS HT118A. The resistors were reported as not noticeably warm; no component or enclosure temperatures were measured. No explicit reset-monitoring result was recorded. The voltage range is a reported reading, not a calibrated uncertainty or an oscilloscope ripple measurement.
+
+**This is a single-board load observation, not a maximum-current rating, continuous accessory-current allowance, or electrical-safety qualification.** No supply-temperature, transient/ripple, insulation, leakage or fault testing accompanied it.
+
+Before publishing a usable accessory-power budget:
+
+- Confirm the actual supply source and trace the P6 rail's regulator, return and mains-isolation boundary. Identify relevant component ratings; a transformer or an open-circuit continuity test alone does not establish protective isolation.
+- Have a qualified person assess insulation, clearances/creepage and accessible conductive parts. Any required dielectric-withstand and leakage/touch-current tests need appropriate equipment and procedures; they are not improvised multimeter tests. See [MEAN WELL's insulation-test explanation](https://www.meanwell.com/qa.aspx).
+- Measure regulator, transformer, rectifier, capacitor and enclosure temperatures under sustained representative load, in the intended enclosure and ambient conditions, until temperatures stabilize. Compare with actual component ratings and retain margin. The load resistors' temperature is not the supply temperature.
+- Check startup, radio peaks and load changes using appropriately rated isolated or differential measurement equipment. A handheld meter's MIN/MAX display can miss brief dips and switching ripple. Never defeat an oscilloscope's protective earth; see [Tektronix's floating-measurement guidance](https://www.tek.com/en/documents/application-note/three-facets-floating-measurement-solutions).
+- Assess wiring insulation, strain relief, connector/contact suitability and accessory fault protection. Verify the completed assembly, including any modified enclosure; the original product's safety evaluation does not qualify the modification.
+
+Keep externally accessible accessories and grounded USB/bench instruments disconnected until isolation has been established. Further mains-powered characterization should use a protected test fixture and qualified assistance. A longer unchanged-voltage test alone cannot answer these safety questions.
 
 ## Programming and power limits
 

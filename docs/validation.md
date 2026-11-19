@@ -33,7 +33,7 @@ python3 -m pura_refresh.cli images
 - A transfer can complete without a usable boot. The final readiness check is mandatory.
 - No complete stock flash backup or password-reset mechanism is provided.
 - Setup does not implement a full gateway, heater control or physical-button behavior.
-- No spare-current, enclosure thermal, mains-insulation or plug-retention qualification has been performed.
+- An initial single-board V2 P6 load observation held approximately 3.327–3.328 V with roughly 142 mA additional resistive load for about 20 minutes; see [conditions and limits](hardware.md#v2-p6-additional-load-observation--2026-11-19). No spare-current rating, enclosure thermal, mains-insulation or plug-retention qualification has been established.
 - Built-in signed-update or TLS policy changes in other stock builds can prevent this route.
 
 Device names, live MACs, LAN addresses, private logs and credentials are intentionally excluded from this record.
